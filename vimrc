@@ -3,7 +3,7 @@
 " =============================================================================
 
 " --- DETEKCE SCHOPNOSTÍ (Fallback pro Tiny/Minimal) ---
-let g:is_tiny = !has('syntax') || !has('multi_byte')
+silent! let g:is_tiny = !has('syntax') || !has('multi_byte')
 
 if !g:is_tiny
   set laststatus=2
