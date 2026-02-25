@@ -1,15 +1,25 @@
 # =============================================================================
 # UNIX ADMIN MINIMALIST BASHRC
 # =============================================================================
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# --- PROMPT (Barevný a informativní) ---
-# Formát: [Uživatel@Host:Adresář] $
-# Červená pro root, zelená pro běžného uživatele
-if [ "$ID" = "0" ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\# '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-fi
+# Definice barev
+RED='\[\033[01;31m\]'
+GREEN='\[\033[01;32m\]'
+BLUE='\[\033[01;34m\]'
+RESET='\[\033[00m\]'
+
+# Funkce pro dynamické sestavení promptu
+build_prompt() {
+    if [ "$(id -u)" -eq 0 ]; then
+        echo "${RED}\u@\h${RESET}:${BLUE}\w${RESET}# "
+    else
+        echo "${GREEN}\u@\h${RESET}:${BLUE}\w${RESET}\$ "
+    fi
+}
+
+# Nastavení PS1 pomocí PROMPT_COMMAND (překreslí se při každém ENTERu)
+PROMPT_COMMAND='PS1=$(build_prompt)'
 
 # --- TERM NASTAVENÍ ---
 # Důležité pro barvy ve Vimu přes PuTTY
