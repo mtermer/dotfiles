@@ -1,0 +1,5 @@
+vbell off
+caption always "%{= wk} %-w%{= BY} %n %t %{-}%+w %= %H %Y-%m-%d %c"
+shelltitle "$ |bash"
+defscrollback 10000
+startup_message off
