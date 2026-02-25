@@ -1,0 +1,46 @@
+# --- Tajná a lokální data (NEPUBLIKOVAT) ---
+.env
+.env.*
+*_local
+.bash_local
+.zsh_local
+.vim_local
+secrets.*
+
+# --- Historie a logy (soukromé záznamy o příkazech) ---
+.bash_history
+.zsh_history
+.python_history
+.node_repl_history
+.mysql_history
+.sqlite_history
+*.log
+
+# --- Soubory operačního systému (veteš) ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+desktop.ini
+
+# --- Dočasné soubory editorů (Vim, VS Code) ---
+*.swp
+*.swo
+.netrwhist
+*~
+.vscode/
+.idea/
+
+# --- SSH a tajné klíče (pokud byste je tam omylem zkopíroval) ---
+id_rsa
+id_ed25519
+*.pem
+*.pub
+known_hosts
+authorized_keys
+
+# --- Python veteš (pokud v dotfiles testujete skripty) ---
+__pycache__/
+*.pyc
+.venv/
+env/

@@ -6,7 +6,7 @@ DOTFILES_DIR=$(pwd)
 echo "--- Zahajuji instalaci dotfiles ---"
 
 # Seznam souborů k nalinkování (zdroj:cíl)
-files=("vimrc:.vimrc" "bashrc:.bashrc" "screenrc:.screenrc")
+files=("vimrc:.vimrc" "bashrc:.bashrc" "screenrc:.screenrc" "zshrc:.zshrc")
 
 for item in "${files[@]}"; do
     src="${item%%:*}"
