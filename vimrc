@@ -109,9 +109,8 @@ if !g:is_tiny
   " Rychlé ukončení bufferu (Ctrl + q)
   nnoremap <C-q> :bd<CR>
 
-  " Vyvolání doplňování v insert módu (Ctrl + Space)
-  " Poznámka: V terminálu se Ctrl+Space často posílá jako Ctrl+@ nebo Ctrl+n
-  inoremap <C-Space> <C-n>
+  " Otevře terminál vertikálně vpravo a přepne do něj kurzor
+  nnoremap <C-t> :vertical rightbelow terminal<CR>
 
   " --- OPRAVA BAREV A TERMINÁLU ---
   set background=dark       " Řekne Vimu, že máte tmavé pozadí (upraví barvy fontu)
