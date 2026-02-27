@@ -1,7 +1,9 @@
 # =============================================================================
 # UNIX ADMIN MINIMALIST ZSHRC
 # =============================================================================
-
+if [[ -d /opt/homebrew/bin && ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
+  export PATH=/opt/homebrew/bin:$PATH
+fi
 # --- ZÁKLADNÍ NASTAVENÍ ---
 HISTSIZE=10000
 SAVEHIST=10000
