@@ -16,7 +16,7 @@ for item in "${files[@]}"; do
     dest="${item#*:}"
 
     echo "Linking $src -> ~/$dest"
-    [ -f "$HOME/$dest" || -d "$HOME/$dest" ] && mv "$HOME/$dest"  "$HOME/backup.${DATE_EXT}/"
+    [ -f "$HOME/$dest" ] || [ -d "$HOME/$dest" ] && mv "$HOME/$dest"  "$HOME/backup.${DATE_EXT}/"
 
 
     ln -sf "$DOTFILES_DIR/$src" "$HOME/$dest"
