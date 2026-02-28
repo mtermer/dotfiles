@@ -1,25 +1,26 @@
-#!/bin/bash
+#!/bin/bash -e
 
-# Získání absolutní cesty k adresáři s dotfiles
+# dotfiles dir
 DOTFILES_DIR=$(pwd)
 
 echo "--- Zahajuji instalaci dotfiles ---"
 
-# Seznam souborů k nalinkování (zdroj:cíl)
-files=("vimrc:.vimrc" "bashrc:.bashrc" "screenrc:.screenrc" "zshrc:.zshrc")
+# List of files for installation
+files=("vimrc:.vimrc" "bashrc:.bashrc" "screenrc:.screenrc" "zshrc:.zshrc" "vim:.vim")
 
 DATE_EXT="$(date +%Y%m%d%H%M)"
+mkdir "${HOME}/backup.${DATE_EXT}"
 
 for item in "${files[@]}"; do
     src="${item%%:*}"
     dest="${item#*:}"
 
-    echo "Linkuji $src -> ~/$dest"
-    [ -f "$HOME/$dest" ] && cp -p "$HOME/$dest"  "$HOME/${dest}.${DATE_EXT}"
+    echo "Linking $src -> ~/$dest"
+    [ -f "$HOME/$dest" ] && mv "$HOME/$dest"  "$HOME/backup.${DATE_EXT}/"
 
 
     ln -sf "$DOTFILES_DIR/$src" "$HOME/$dest"
 done
 
-echo "--- Hotovo! ---"
-echo "Pro načtení bashrc použijte: source ~/.bashrc"
+echo "--- Done! ---"
+echo "For aplication use: source ~/.bashrc"
