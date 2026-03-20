@@ -61,6 +61,12 @@ if !g:is_tiny
   " Odstraní nadbytečné mezery na konci řádku při uložení
   autocmd BufWritePre * %s/\s\+$//e
 
+  " Automatické zalamování pro textové soubory na 80 znacích
+  autocmd FileType text,markdown setlocal textwidth=80
+
+  " Volitelné: Zapnutí vizuálního zalamování, aby text nepřetékal za okno
+  autocmd FileType text,markdown setlocal wrap
+
   " Zvýraznění sloupce na 80. znaku (volitelné, pro čistotu kódu)
   set colorcolumn=80
   " Nastavení decentní barvy pro ColorColumn
